@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior='single'>
+        <item
+            android:id="@+id/nav_item_home"
+            android:title="@string/home"
+            android:checked="true"
+            />
+        <item
+            android:id="@+id/nav_item_supermercado"
+            android:title="@string/supermercados"
+            android:checked="true"
+            />
+        <item
+            android:id="@+id/nav_item_configuracoes"
+            android:title="@string/configuracoes"
+            android:checked="true"
+            />
+        <item
+            android:id="@+id/nav_item_sobre"
+            android:title="@string/sobre"
+            android:checked="true"
+            />
+        <item
+            android:id="@+id/nav_item_conta"
+            android:title="@string/suaconta"
+            android:checked="true"
+            android:visible="false"
+            />
+
+    </group>
+
+</menu>

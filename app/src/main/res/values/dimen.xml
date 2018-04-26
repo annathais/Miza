@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <dimen name="tamanho_texto_card">20sp</dimen>
+    <dimen name="tamanho_fieldtext_card">150sp</dimen>
+    <dimen name="margem_esquerda_cardview">15sp</dimen>
+    <dimen name="margem_superior_cardview">15sp</dimen>
+    <dimen name="margem_direita_cardview">15sp</dimen>
+    <dimen name="margem_inferior_cardview">15sp</dimen>
+    <dimen name="margem_inicial_cardview">20sp</dimen>
+
+
+    <dimen name="navDrawerBackground_layout_height">164dp</dimen>
+
+    <dimen name="navDrawerPhoto_layout_width">64dp</dimen>
+    <dimen name="navDrawerPhoto_layout_height">64dp</dimen>
+    <dimen name="navDrawerPhoto_layout_marginTop">16dp</dimen>
+    <dimen name="navDrawerPhoto_layout_marginLeft">16dp</dimen>
+    <dimen name="navDrawerName_textSize">14sp</dimen>
+    <dimen name="navDrawerDate_layout_heigth">150dp</dimen>
+    <dimen name="navDrawerName_layout_marginLeft">16dp</dimen>
+    <dimen name="navDrawerData_layout_marginBottom">16dp</dimen>
+</resources>
+

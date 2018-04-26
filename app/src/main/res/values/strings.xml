@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Miza</string>
+    <string name="tabhome_destaque">Destaque</string>
+    <string name="tabhome_departamento">Departamento</string>
+    <string name="home">Home</string>
+    <string name="supermercados">Supermercados</string>
+    <string name="configuracoes">Configurações</string>
+    <string name="sobre">Sobre</string>
+    <string name="suaconta">Sua Conta</string>
+    <string name="usuario">username</string>
+    <string name="email">email</string>
+
+
+
+</resources>

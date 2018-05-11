@@ -7,6 +7,7 @@ public class SupermercadoService {
     private static List<Supermercado> supermercadoList = new ArrayList<Supermercado>();
 
     public static List<Supermercado> getSupermercadoList(){
+        criarSupermercado();
         return supermercadoList;
     }
 
@@ -18,10 +19,10 @@ public class SupermercadoService {
 
         }
     }
-//TA FALTANDO EU PEGAR OS DADOS USANDO O GET
-    public void criarSupermercado(String nome, String rua, int numero, String bairro, String telefone){
+
+    public static void criarSupermercado(){
         for(int i = 0; i < 10; i++){
-            saveSupermercados(nome, rua, numero, bairro, telefone);
+            saveSupermercados(""+i,""+i, i, ""+i, ""+i);
         }
     }
 

@@ -12,6 +12,18 @@
             android:checked="true"
             />
         <item
+            android:id="@+id/nav_item_conta"
+            android:title="@string/suaconta"
+            android:checked="true"
+            android:visible="false"
+            />
+        <item
+            android:id="@+id/nav_item_fazer_login"
+            android:title="@string/acessar_conta"
+            android:checked="true"
+            android:visible="true"
+            />
+        <item
             android:id="@+id/nav_item_configuracoes"
             android:title="@string/configuracoes"
             android:checked="true"
@@ -21,12 +33,7 @@
             android:title="@string/sobre"
             android:checked="true"
             />
-        <item
-            android:id="@+id/nav_item_conta"
-            android:title="@string/suaconta"
-            android:checked="true"
-            android:visible="false"
-            />
+
 
     </group>
 

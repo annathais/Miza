@@ -8,7 +8,7 @@ public class ProdutoService {
     private static List<Produto> produtos = new ArrayList<Produto>();
 
     public static List<Produto> getProdutos(){
-       // criarProduto();
+        criarProduto();
         return produtos;
     }
 
@@ -21,9 +21,9 @@ public class ProdutoService {
         }
     }
 
-    public void criarProduto(){
+    public static void criarProduto(){
         for(int i = 0; i < 5; i++){
-            //saveProdutos(nomeProduto, precoProduto, lote, supermercado, departamento, imagem);
+            saveProdutos(""+i,new BigDecimal(i) ,i, ""+i, ""+i, null);
         }
     }
 }

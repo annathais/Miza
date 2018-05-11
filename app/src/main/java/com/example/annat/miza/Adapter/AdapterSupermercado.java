@@ -39,7 +39,7 @@ public class AdapterSupermercado extends RecyclerView.Adapter<AdapterSupermercad
         Supermercado supermercado = this.supermercados.get(position);
         holder.nomeSupermercado.setText(supermercado.getNome());
         holder.ruaSupermercado.setText(supermercado.getRua());
-        holder.numeroSupermercado.setText(supermercado.getNumero());
+        holder.numeroSupermercado.setText(""+supermercado.getNumero());
         holder.bairroSupermercado.setText(supermercado.getBairro());
         holder.telefoneSupermercado.setText(supermercado.getTelefone());
         holder.btShowSupermercado.setOnClickListener(new View.OnClickListener() {
@@ -47,17 +47,9 @@ public class AdapterSupermercado extends RecyclerView.Adapter<AdapterSupermercad
             public void onClick(View view) {
 
                 if(holder.layoutInfoSupermercado.getVisibility() == View.VISIBLE){
-                    animation = new TranslateAnimation(0,0,0, -holder.layoutInfoSupermercado.getHeight());
-                    animation.setDuration(500);
-                    animation.setFillAfter(true);
-                    holder.layoutInfoSupermercado.startAnimation(animation);
                     holder.layoutInfoSupermercado.setVisibility(View.GONE);
                     holder.btShowSupermercado.setImageResource(R.mipmap.ic_keyboard_arrow_up_black_24dp);
                 }else{
-                    animation = new TranslateAnimation(0,0,0, holder.layoutInfoSupermercado.getHeight());
-                    animation.setDuration(500);
-                    animation.setFillAfter(true);
-                    holder.layoutInfoSupermercado.startAnimation(animation);
                     holder.layoutInfoSupermercado.setVisibility(View.VISIBLE);
                     holder.btShowSupermercado.setImageResource(R.mipmap.ic_keyboard_arrow_down_black_24dp);
                 }

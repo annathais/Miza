@@ -3,6 +3,7 @@ package com.example.annat.miza.Fragments;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -29,7 +30,7 @@ public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
 
         View view = layoutInflater.inflate(R.layout.fragment_home_destaque, container, false);
         recyclerView = (RecyclerView) view.findViewById(R.id.recycleview_produto);
-        recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        recyclerView.setLayoutManager(new GridLayoutManager(getActivity(),2));
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setHasFixedSize(true);
 

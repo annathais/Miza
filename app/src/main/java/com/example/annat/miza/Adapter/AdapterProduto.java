@@ -43,8 +43,10 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
         Produto produto = produtos.get(position);
         double valor = produto.getPrecoProduto().setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue();
         byte[] foto = produto.getImagem();
-        Bitmap imagem = BitmapFactory.decodeByteArray(foto,0,foto.length);
-        holder.imagemProduto.setImageBitmap(imagem);
+        if(foto!=null) {
+            Bitmap imagem = BitmapFactory.decodeByteArray(foto, 0, foto.length);
+            holder.imagemProduto.setImageBitmap(imagem);
+        }
         holder.nomeProduto.setText(produto.getNomeProduto());
         holder.precoProduto.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(valor)));
         holder.supermercado.setText(produto.getSupermercado());

@@ -8,8 +8,14 @@
     <string name="sobre">Sobre</string>
     <string name="suaconta">Sua Conta</string>
     <string name="usuario">username</string>
-    <string name="email">email</string>
-
+    <string name="email">Email</string>
+    <string name="acessar_conta">Acessar Conta</string>
+    <string name="senha">Senha</string>
+    <string name="login_incorreto">Email ou senha incorretos</string>
+    <string name="fazer_cadastro">Fazer Cadastro</string>
+    <string name="recuperar_senha">Esqueceu email?</string>
+    <string name="cancelar">Cancelar</string>
+    <string name="entrar">Entrar</string>
 
 
 </resources>

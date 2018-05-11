@@ -12,6 +12,12 @@
     <dimen name="margem_inferior_cardview">15sp</dimen>
     <dimen name="margem_inicial_cardview">20sp</dimen>
 
+    <!-- dimensoes para a tela de login e criar login-->
+    <dimen name="margem_superior_login">15sp</dimen>
+    <dimen name="margem_direita_login">15sp</dimen>
+    <dimen name="margem_esquerda_login">15sp</dimen>
+
+
 
     <dimen name="navDrawerBackground_layout_height">164dp</dimen>
 

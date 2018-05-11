@@ -1,5 +1,7 @@
 package com.example.annat.miza.Activity;
 
+import android.content.Intent;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -14,6 +16,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.annat.miza.Fragments.FragmentHome;
+import com.example.annat.miza.Fragments.FragmentSupermercado;
 import com.example.annat.miza.R;
 
 public class BaseActivity extends AppCompatActivity {
@@ -21,7 +25,6 @@ public class BaseActivity extends AppCompatActivity {
 
     protected void setUpToolbar(String titulo){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-
         if(toolbar!=null){
             setSupportActionBar(toolbar);
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -38,6 +41,11 @@ public class BaseActivity extends AppCompatActivity {
 
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+
+        //if usuario logado -> setar true para "suaconta"
+        MenuItem navFazerLogin = findViewById(R.id.nav_item_fazer_login);
+
+
         if(navigationView != null && drawerLayout != null){
             setNavViewValues(navigationView, R.string.usuario, R.string.email, R.mipmap.ic_launcher);
             navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
@@ -66,10 +74,10 @@ public class BaseActivity extends AppCompatActivity {
     private void onNavDrawerItemSelected(MenuItem item){
         switch (item.getItemId()){
             case R.id.nav_item_home:
-                toast("Clicou em Home");
+                inicializarFragment(new FragmentHome());
                 break;
             case R.id.nav_item_supermercado:
-                toast("Clicou em Supermercados");
+                inicializarFragment(new FragmentSupermercado());
                 break;
             case R.id.nav_item_configuracoes:
                 toast("Clicou em Configurações");
@@ -80,9 +88,11 @@ public class BaseActivity extends AppCompatActivity {
             case R.id.nav_item_conta:
                 toast("Clicou em Sua Conta");
                 break;
+            case R.id.nav_item_fazer_login:
+                iniciarIntent(LoginActivity.class, null);
+                break;
         }
     }
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){
@@ -110,5 +120,13 @@ public class BaseActivity extends AppCompatActivity {
 
     public void toast(String s){
         Toast.makeText(getBaseContext(),s, Toast.LENGTH_SHORT).show();
+    }
+
+    public void iniciarIntent(Class classeDestino, Bundle params){
+        Intent intent = new Intent(getBaseContext(), classeDestino);
+        if(params != null){
+            intent.putExtras(params);
+        }
+        startActivity(intent);
     }
 }

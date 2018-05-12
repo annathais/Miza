@@ -18,35 +18,33 @@
         android:layout_marginLeft="@dimen/navDrawerPhoto_layout_marginLeft"
         android:layout_marginTop="32dp"
         />
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="@dimen/navDrawerDate_layout_heigth"
-        android:layout_alignBottom="@+id/imagem_usuarioBackground"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginBottom="@dimen/navDrawerData_layout_marginBottom"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:gravity="bottom"
-        android:orientation="vertical"
-        >
+        android:orientation="vertical">
+
         <TextView
             android:id="@+id/nome_usuario"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/navDrawerName_layout_marginLeft"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/navDrawerName_textSize"
             android:text="@string/usuario"
-            />
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/navDrawerName_textSize" />
+
         <TextView
             android:id="@+id/email_usuario"
             fontPath="fonts/Roboto-Regular.ttf"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/navDrawerName_layout_marginLeft"
-            android:textColor="#FFFFFF"
-            android:textSize="@dimen/navDrawerName_textSize"
             android:text="@string/email"
-            />
+            android:textColor="#FFFFFF"
+            android:textSize="@dimen/navDrawerName_textSize" />
     </LinearLayout>
 
 </RelativeLayout>

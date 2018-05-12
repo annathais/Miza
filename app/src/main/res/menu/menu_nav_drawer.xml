@@ -33,8 +33,6 @@
             android:title="@string/sobre"
             android:checked="true"
             />
-
-
     </group>
 
 </menu>

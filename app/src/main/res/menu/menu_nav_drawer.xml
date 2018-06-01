@@ -5,11 +5,13 @@
             android:id="@+id/nav_item_home"
             android:title="@string/home"
             android:checked="true"
+            android:icon="@mipmap/ic_home_black_24dp"
             />
         <item
             android:id="@+id/nav_item_supermercado"
             android:title="@string/supermercados"
             android:checked="true"
+            android:icon="@mipmap/ic_shopping_cart_black_24dp"
             />
         <item
             android:id="@+id/nav_item_conta"
@@ -22,16 +24,26 @@
             android:title="@string/acessar_conta"
             android:checked="true"
             android:visible="true"
+            android:icon="@drawable/baseline_account_circle_black_18"
+            />
+        <item
+            android:id="@+id/nav_item_lista"
+            android:title="@string/listas"
+            android:checked="true"
+            android:visible="false"
+            android:icon="@drawable/baseline_list_black_18"
             />
         <item
             android:id="@+id/nav_item_configuracoes"
             android:title="@string/configuracoes"
             android:checked="true"
+            android:icon="@mipmap/ic_settings_black_24dp"
             />
         <item
             android:id="@+id/nav_item_sobre"
             android:title="@string/sobre"
             android:checked="true"
+            android:icon="@mipmap/ic_info_black_24dp"
             />
     </group>
 

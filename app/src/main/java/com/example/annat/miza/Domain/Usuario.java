@@ -1,37 +1,72 @@
 package com.example.annat.miza.Domain;
 
-public class Usuario {
-    private String nomeUsuario;
-    private String email;
-    private String senha;
+import com.example.annat.miza.DB.DBFirebase;
+import com.google.firebase.database.DatabaseReference;
 
-    public Usuario(String nu, String e, String s){
-        nomeUsuario = nu;
-        email = e;
-        senha = s;
+import java.io.Serializable;
+
+public class Usuario implements Serializable {
+    private String nomeUsuario;
+    private String emailUsuario;
+    private String senhaUsuario;
+    private String userUsuario;
+    private int idUsuario;
+
+
+    public Usuario( int idUsuario, String emailUsuario, String nomeUsuario, String senhaUsuario, String userUsuario){
+        this.nomeUsuario = nomeUsuario;
+        this.emailUsuario = emailUsuario;
+        this.senhaUsuario = senhaUsuario;
+        this.userUsuario = userUsuario;
+        this.idUsuario = idUsuario;
+    }
+    public Usuario(String nomeUsuario,String emailUsuario,String senhaUsuario, String userUsuario){
+        this.nomeUsuario = nomeUsuario;
+        this.emailUsuario = emailUsuario;
+        this.senhaUsuario = senhaUsuario;
+        this.userUsuario = userUsuario;
+        this.idUsuario = idUsuario;
     }
 
     public String getNomeUsuario() {
         return nomeUsuario;
     }
 
-    public void setNomeUsuario(String nu) {
-        nomeUsuario = nu;
+    public void setNomeUsuario(String nomeUsuario) {
+       this.nomeUsuario = nomeUsuario;
     }
 
-    public String getEmail() {
-        return email;
+    public String getEmailUsuario() {
+        return emailUsuario;
     }
 
-    public void setEmail(String e) {
-        email = e;
+    public void setEmailUsuario(String emailUsuario) {
+        this.emailUsuario = emailUsuario;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getSenhaUsuario() {
+        return senhaUsuario;
     }
 
-    public void setSenha(String s) {
-        senha = s;
+    public void setSenhaUsuario(String senhaUsuario) {
+        this.senhaUsuario = senhaUsuario;
     }
+
+    public String getUserUsuario() {
+        return userUsuario;
+    }
+
+    public void setUserUsuario(String userUsuario) {
+        this.userUsuario = userUsuario;
+    }
+
+    public int getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(int idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+
 }

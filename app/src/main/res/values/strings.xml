@@ -18,9 +18,13 @@
     <string name="entrar">Entrar</string>
     <string name="repetir_senha">Repeta a Senha</string>
     <string name="nome_usuario">Nome</string>
-    <string name="ser_chamado">Como deseja ser chamado?</string>
+    <string name="ser_chamado">Nome de Usuário</string>
     <string name="fazer_login">Fazer Login</string>
     <string name="cadastrar">Cadastrar</string>
+    <string name="detalhes_conta">Detalhes da sua conta</string>
+    <string name="excluir_conta">Excluir conta</string>
+    <string name="sair">Sair</string>
+    <string name="listas">Acessar Listas</string>
 
 
 </resources>

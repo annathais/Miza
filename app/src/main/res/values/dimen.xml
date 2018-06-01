@@ -22,6 +22,11 @@
     <dimen name="margem_direita_cadastro">15sp</dimen>
     <dimen name="margem_esquerda_cadastro">15sp</dimen>
 
+    <!-- dimensoes para a tela de conta-->
+    <dimen name="margem_superior_conta">15sp</dimen>
+    <dimen name="margem_direita_conta">15sp</dimen>
+    <dimen name="margem_esquerda_conta">15sp</dimen>
+
     <dimen name="navDrawerBackground_layout_height">164dp</dimen>
 
     <dimen name="navDrawerPhoto_layout_width">64dp</dimen>

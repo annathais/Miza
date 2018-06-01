@@ -22,7 +22,6 @@ import com.example.annat.miza.R;
 
 public class BaseActivity extends AppCompatActivity {
     DrawerLayout drawerLayout;
-
     protected void setUpToolbar(String titulo){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if(toolbar!=null){
@@ -47,7 +46,7 @@ public class BaseActivity extends AppCompatActivity {
 
 
         if(navigationView != null && drawerLayout != null){
-            setNavViewValues(navigationView, R.string.usuario, R.string.email, R.mipmap.ic_launcher);
+            setNavViewValues(navigationView, R.string.usuario, R.string.email, R.mipmap.ic_launcher_round);
             navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -60,7 +59,7 @@ public class BaseActivity extends AppCompatActivity {
         }
     }
 
-    static private void setNavViewValues(NavigationView navigationView, int usuario, int email, int ic_launcher) {
+    static private void setNavViewValues(NavigationView navigationView, int usuario, int email, int ic_launcher_round) {
         View headerView = navigationView.getHeaderView(0);
         TextView nomeUsuario = (TextView) headerView.findViewById(R.id.nome_usuario);
         TextView emailUsuario = (TextView) headerView.findViewById(R.id.email_usuario);
@@ -68,7 +67,7 @@ public class BaseActivity extends AppCompatActivity {
 
         nomeUsuario.setText(usuario);
         emailUsuario.setText(email);
-        imagem.setImageResource(ic_launcher);
+        imagem.setImageResource(ic_launcher_round);
     }
 
     private void onNavDrawerItemSelected(MenuItem item){

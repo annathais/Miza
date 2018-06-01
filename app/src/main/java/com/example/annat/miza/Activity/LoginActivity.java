@@ -7,6 +7,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.annat.miza.DB.DataBase;
+import com.example.annat.miza.Domain.Usuario;
 import com.example.annat.miza.R;
 
 public class LoginActivity extends BaseActivity{
@@ -42,6 +44,17 @@ public class LoginActivity extends BaseActivity{
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                DataBase db = new DataBase(getBaseContext());
+                Usuario user = db.validarLogin(etEmail.getText().toString(),
+                        etSenha.getText().toString());
+                Bundle params = new Bundle();
+                params.putSerializable("usuario", user);
+                if(user != null){
+                    iniciarIntent(ContaActivity.class,params);
+                }
+                else{
+                    tvLoginIncorreto.setVisibility(View.VISIBLE);
+                }
 
             }
         };

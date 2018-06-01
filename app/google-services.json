@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "423909895875",
+    "firebase_url": "https://miza-df4ae.firebaseio.com",
+    "project_id": "miza-df4ae",
+    "storage_bucket": "miza-df4ae.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:423909895875:android:23b267a6438b22bf",
+        "android_client_info": {
+          "package_name": "com.example.annat.miza"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "423909895875-2m5fldutoq55a83r91nfps11vhg53b6c.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "423909895875-2m5fldutoq55a83r91nfps11vhg53b6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy2ddGFvaEoLeRbAU68hLajoJl3M2o6ZA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

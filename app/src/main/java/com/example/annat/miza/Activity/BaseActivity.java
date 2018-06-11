@@ -21,6 +21,7 @@ import com.example.annat.miza.Fragments.FragmentSupermercado;
 import com.example.annat.miza.R;
 
 public class BaseActivity extends AppCompatActivity {
+
     DrawerLayout drawerLayout;
     protected void setUpToolbar(String titulo){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);

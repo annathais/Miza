@@ -64,13 +64,17 @@ public class CadastroActivity extends BaseActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DatabaseReference userersRef = new DBFirebase().getRef().child("usuario");
+            /*    DatabaseReference userersRef = new DBFirebase().getRef().child("usuario");
                 userersRef.child(etEmail.getText().toString()).setValue(new Usuario(
                         etEmail.getText().toString(),
                         etNome.getText().toString(),
                         etSenha.getText().toString(),
                         etUserName.getText().toString()
-                ));
+                ));*/
+                Usuario user = new Usuario(etEmail.getText().toString(),
+                        etNome.getText().toString(),
+                        etSenha.getText().toString(),
+                        etUserName.getText().toString());
             }
         };
     }

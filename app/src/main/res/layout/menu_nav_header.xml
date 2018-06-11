@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="@dimen/navDrawerBackground_layout_height"
     android:layout_gravity="start"
-    android:background="#64B5F6"
+    android:background="@color/colorPrimaryDark"
     tools:ignore="MissingPrefix">
 
     <ImageView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/navDrawerName_layout_marginLeft"
             android:text="@string/usuario"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorBottom"
             android:textSize="@dimen/navDrawerName_textSize" />
 
         <TextView
@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/navDrawerName_layout_marginLeft"
             android:text="@string/email"
-            android:textColor="#FFFFFF"
+            android:textColor="@color/colorBottom"
             android:textSize="@dimen/navDrawerName_textSize" />
     </LinearLayout>
 

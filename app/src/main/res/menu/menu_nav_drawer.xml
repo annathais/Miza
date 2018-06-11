@@ -18,6 +18,7 @@
             android:title="@string/suaconta"
             android:checked="true"
             android:visible="false"
+            android:icon="@drawable/baseline_account_circle_black_18"
             />
         <item
             android:id="@+id/nav_item_fazer_login"

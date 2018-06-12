@@ -82,27 +82,12 @@
             android:layout_below="@+id/tv_cadastro_nome_usuario"
             android:layout_marginRight="@dimen/margem_direita_cadastro"
             />
-        <TextView
-            android:id="@+id/tv_cadastro_username"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/tv_cadastro_email_usuario"
-            android:layout_below="@+id/et_cadastro_nome_usuario"
-            android:text="@string/ser_chamado"
-            />
-        <EditText
-            android:id="@+id/et_cadastro_username"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/tv_cadastro_email_usuario"
-            android:layout_below="@+id/tv_cadastro_username"
-            android:layout_marginRight="@dimen/margem_direita_cadastro"
-            />
+
         <TextView
             android:id="@+id/tv_cadastro_fazer_login"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/et_cadastro_username"
+            android:layout_below="@id/et_cadastro_nome_usuario"
             android:text="@string/fazer_login"
             android:layout_alignParentRight="true"
             android:layout_marginRight="@dimen/margem_direita_cadastro"
@@ -126,4 +111,11 @@
             android:layout_marginRight="@dimen/margem_direita_login"
             />
     </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressbarCadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
 </LinearLayout>

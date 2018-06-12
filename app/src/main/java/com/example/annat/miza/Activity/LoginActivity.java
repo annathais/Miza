@@ -1,15 +1,21 @@
 package com.example.annat.miza.Activity;
 
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.annat.miza.DB.DataBase;
 import com.example.annat.miza.Domain.Usuario;
 import com.example.annat.miza.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 
 public class LoginActivity extends BaseActivity{
     private EditText etEmail;
@@ -19,6 +25,8 @@ public class LoginActivity extends BaseActivity{
     private TextView tvLoginIncorreto;
     private Button btCancelar;
     private Button btEntrar;
+    private String email,senha;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -33,7 +41,7 @@ public class LoginActivity extends BaseActivity{
         tvLoginIncorreto = (TextView) findViewById(R.id.tv_login_incorreto);
         btCancelar = (Button) findViewById(R.id.bt_cancelar);
         btEntrar = (Button) findViewById(R.id.bt_entrar);
-
+        progressBar = (ProgressBar) findViewById(R.id.progressbarLogin);
         tvFazerCadastro.setOnClickListener(fazerCadastro());
         tvRecuperarSenha.setOnClickListener(recuperarSenha());
         btCancelar.setOnClickListener(cancelar());
@@ -44,17 +52,30 @@ public class LoginActivity extends BaseActivity{
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                DataBase db = new DataBase(getBaseContext());
-                Usuario user = db.validarLogin(etEmail.getText().toString(),
-                        etSenha.getText().toString());
-                Bundle params = new Bundle();
-                params.putSerializable("usuario", user);
-                if(user != null){
-                    iniciarIntent(ContaActivity.class,params);
+                email = etEmail.getText().toString().trim();
+                senha = etSenha.getText().toString().trim();
+                if(email.isEmpty()){
+                    etEmail.setError("Preencha o campo corretamente");
+                    etEmail.requestFocus();
                 }
-                else{
-                    tvLoginIncorreto.setVisibility(View.VISIBLE);
+                if(senha.isEmpty()){
+                    etSenha.setError("Preencha o campo corretamente");
+                    etSenha.requestFocus();
                 }
+                progressBar.setVisibility(View.VISIBLE);
+                firebase.getFirebaseAuth().signInWithEmailAndPassword(email,senha).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        progressBar.setVisibility(View.GONE);
+                        if(task.isSuccessful()){
+                            finish();
+                            iniciarIntent(MainActivity.class,null);
+                        }
+                        else{
+                            toast(task.getException().getMessage());
+                        }
+                    }
+                });
 
             }
         };
@@ -73,7 +94,7 @@ public class LoginActivity extends BaseActivity{
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                iniciarIntent(RecuperarSenhaActitivty.class,null);
             }
         };
     }

@@ -10,19 +10,25 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.annat.miza.DB.DBFirebase;
 import com.example.annat.miza.Fragments.FragmentHome;
 import com.example.annat.miza.Fragments.FragmentSupermercado;
 import com.example.annat.miza.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 public class BaseActivity extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
+    final DBFirebase firebase = new DBFirebase();
     protected void setUpToolbar(String titulo){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         if(toolbar!=null){
@@ -42,9 +48,11 @@ public class BaseActivity extends AppCompatActivity {
         drawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
 
-        //if usuario logado -> setar true para "suaconta"
-        MenuItem navFazerLogin = findViewById(R.id.nav_item_fazer_login);
-
+        if(firebase.getFirebaseUser() !=null){
+            navigationView.getMenu().findItem(R.id.nav_item_fazer_login).setVisible(false);
+            navigationView.getMenu().findItem(R.id.nav_item_conta).setVisible(true);
+            Log.i("LOGADO","TRUE");
+        }
 
         if(navigationView != null && drawerLayout != null){
             setNavViewValues(navigationView, R.string.usuario, R.string.email, R.mipmap.ic_launcher_round);
@@ -86,13 +94,15 @@ public class BaseActivity extends AppCompatActivity {
                 toast("Clicou em Sobre");
                 break;
             case R.id.nav_item_conta:
-                toast("Clicou em Sua Conta");
+                iniciarIntent(ContaActivity.class,null);
                 break;
             case R.id.nav_item_fazer_login:
                 iniciarIntent(LoginActivity.class, null);
                 break;
         }
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){

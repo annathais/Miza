@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent">
+    <include layout="@layout/toolbar"/>
+    <TextView
+            android:id="@+id/tv_recuperar_usuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/email"
+            android:layout_marginTop="@dimen/margem_superior_cadastro"
+            android:layout_marginLeft="@dimen/margem_esquerda_cadastro"
+    />
+
+    <EditText
+            android:id="@+id/et_recuperar_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/margem_direita_cadastro"
+            android:inputType="textEmailAddress"
+    />
+
+    <Button
+        android:id="@+id/bt_enviar_recuperacao"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="Enviar email"
+
+        />
+
+</LinearLayout>

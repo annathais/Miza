@@ -32,7 +32,9 @@ public class ContaActivity extends BaseActivity {
         return new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                firebase.getFirebaseAuth().signOut();
+                finish();
+                iniciarIntent(MainActivity.class,null);
             }
         };
     }

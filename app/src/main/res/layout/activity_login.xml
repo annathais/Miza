@@ -92,5 +92,12 @@
             android:layout_marginRight="@dimen/margem_direita_cadastro"
             />
     </RelativeLayout>
+    <ProgressBar
+        android:id="@+id/progressbarLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone" />
 
 </LinearLayout>

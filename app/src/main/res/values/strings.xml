@@ -25,6 +25,7 @@
     <string name="excluir_conta">Excluir conta</string>
     <string name="sair">Sair</string>
     <string name="listas">Acessar Listas</string>
+    <string name="salvar">Salvar</string>
 
 
 </resources>

@@ -6,11 +6,17 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class DBFirebase {
-    final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
-    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+    private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
+    private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+    private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+    private DatabaseReference referenceSupermercado = firebaseDatabase.getReference("server/saving-data/miza-df4ae/Supermercado");
 
     public FirebaseAuth getFirebaseAuth() {
         return firebaseAuth;
+    }
+
+    public DatabaseReference getReferenceSupermercado() {
+        return referenceSupermercado;
     }
 
     public FirebaseUser getFirebaseUser() {

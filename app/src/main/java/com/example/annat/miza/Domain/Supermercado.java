@@ -6,13 +6,16 @@ public class Supermercado {
     private int numero;
     private String bairro;
     private String telefone;
+    private String email;
 
-    public Supermercado(String nome, String rua, int numero, String bairro, String telefone){
+
+    public Supermercado(String nome, String rua, int numero, String bairro, String telefone,String email){
         this.nome = nome;
         this.rua = rua;
         this.numero = numero;
         this.bairro =bairro;
         this.telefone = telefone;
+        this.email = email;
     }
 
     public String getNome() {
@@ -53,5 +56,13 @@ public class Supermercado {
 
     public void setTelefone(String telefone) {
         this.telefone = telefone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }

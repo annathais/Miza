@@ -11,16 +11,21 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.annat.miza.Adapter.AdapterSupermercado;
+import com.example.annat.miza.DB.DBFirebase;
 import com.example.annat.miza.Domain.Supermercado;
 import com.example.annat.miza.Domain.SupermercadoService;
 import com.example.annat.miza.R;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
 public class FragmentSupermercado extends Fragment {
     private List<Supermercado> supermercados;
     private RecyclerView recyclerView;
-
+    private DatabaseReference reference = new DBFirebase().getReferenceSupermercado();
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle){
         View view = layoutInflater.inflate(R.layout.fragment_supermercado, viewGroup, false);
@@ -37,8 +42,19 @@ public class FragmentSupermercado extends Fragment {
         super.onActivityCreated(savedInstanceState);
         taskSupermercados();
     }
-
     private void taskSupermercados() {
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                Supermercado supermercado = dataSnapshot.getValue(Supermercado.class);
+                supermercados.add(supermercado);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
         this.supermercados = SupermercadoService.getSupermercadoList();
         recyclerView.setAdapter(new AdapterSupermercado(supermercados, getContext()));
     }

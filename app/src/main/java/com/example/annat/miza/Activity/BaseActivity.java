@@ -51,6 +51,7 @@ public class BaseActivity extends AppCompatActivity {
         if(firebase.getFirebaseUser() !=null){
             navigationView.getMenu().findItem(R.id.nav_item_fazer_login).setVisible(false);
             navigationView.getMenu().findItem(R.id.nav_item_conta).setVisible(true);
+            navigationView.getMenu().findItem(R.id.nav_item_lista).setVisible(true);
             Log.i("LOGADO","TRUE");
         }
 
@@ -101,8 +102,6 @@ public class BaseActivity extends AppCompatActivity {
                 break;
         }
     }
-
-
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item){

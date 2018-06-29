@@ -1,8 +1,9 @@
 package com.example.annat.miza.Domain;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 
-public class Produto {
+public class Produto{
     private String nomeProduto;
     private BigDecimal precoProduto;
     private int lote;

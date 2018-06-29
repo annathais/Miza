@@ -3,6 +3,7 @@ package com.example.annat.miza.Adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +11,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.annat.miza.Activity.BaseActivity;
+import com.example.annat.miza.Activity.ProdutoActivity;
 import com.example.annat.miza.R;
 
 import com.example.annat.miza.Domain.Produto;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.text.NumberFormat;
 import java.util.List;
@@ -55,7 +59,12 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   produtoOnClickListener.onClickProduto(holder.itemView,position);
+                   //produtoOnClickListener.onClickProduto(holder.itemView,position);
+                    Produto produto = produtos.get(position);
+                    Bundle params = new Bundle();
+                    params.putSerializable("produto", (Serializable) produto);
+
+                    new BaseActivity().iniciarIntent(ProdutoActivity.class, params);
                 }
             });
         }

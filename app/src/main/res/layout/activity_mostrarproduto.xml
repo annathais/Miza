@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical"
+        >
+
+        <ImageView
+            android:id="@+id/mostrar_img_produto"
+            android:layout_width="179dp"
+            android:layout_height="221dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="19dp"
+            android:src="@mipmap/ic_launcher" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mostrar_nome_doproduto"
+            android:text="Nome Produto"
+            android:layout_below="@+id/mostrar_img_produto"
+            android:layout_centerHorizontal="true"
+            android:textSize="20sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mostrar_menor_supermercado"
+            android:layout_below="@+id/mostrar_nome_doproduto"
+            android:text="Supermercado"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_marginLeft="35dp"
+            />
+        <!-- O supermercardo e R$ Menor preço deve mstrar o supermercado com o menor preço-->
+
+        <TextView
+            android:id="@+id/mostrar_menor_preco"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="35dp"
+            android:text="R$ Menor preço "
+            android:textStyle="bold"
+            android:textSize="15sp"
+            android:layout_below="@+id/mostrar_nome_doproduto"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/mostrar_recyclerview_produto"
+            android:layout_below="@+id/mostrar_menor_preco"
+            android:layout_marginLeft="35dp"
+            android:clipToPadding="false"
+            android:divider="@null"
+            android:scrollbarSize="1dp"
+            android:scrollbars="vertical"
+            />
+    </RelativeLayout>
+
+</LinearLayout>

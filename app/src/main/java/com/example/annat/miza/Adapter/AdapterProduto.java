@@ -55,7 +55,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    produtoOnClickListener.onClickProduto(holder.itemView,position);
+                   produtoOnClickListener.onClickProduto(holder.itemView,position);
                 }
             });
         }

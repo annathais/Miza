@@ -9,14 +9,14 @@ public class DBFirebase {
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
-    private DatabaseReference referenceSupermercado = firebaseDatabase.getReference("server/saving-data/miza-df4ae/Supermercado");
+    private DatabaseReference reference = firebaseDatabase.getReference("server/database");
 
     public FirebaseAuth getFirebaseAuth() {
         return firebaseAuth;
     }
 
-    public DatabaseReference getReferenceSupermercado() {
-        return referenceSupermercado;
+    public DatabaseReference getReference() {
+        return reference;
     }
 
     public FirebaseUser getFirebaseUser() {

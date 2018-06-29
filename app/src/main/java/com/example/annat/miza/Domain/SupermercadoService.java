@@ -17,14 +17,13 @@ public class SupermercadoService {
     }
 
     public void saveSupermercados(String nome, String rua, int numero, String bairro,
-                                         String telefone,String email){
+                                         String telefone,String email, int cnpj, int cep,
+                                  String cidade, String estado){
         try{
-            supermercadoList.add(new Supermercado(nome, rua, numero, bairro, telefone,email));
+            supermercadoList.add(new Supermercado(nome, rua, numero, bairro, telefone,
+                    email, cnpj, cep, cidade, estado));
         }catch (Error error){
 
         }
     }
-
-
-
 }

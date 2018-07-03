@@ -1,6 +1,7 @@
 package com.example.annat.miza.Adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
@@ -46,25 +47,27 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
     public void onBindViewHolder(final ProdutoViewHolder holder, final int position) {
         Produto produto = produtos.get(position);
         double valor = produto.getPrecoProduto().setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue();
-        byte[] foto = produto.getImagem();
-        if(foto!=null) {
-            Bitmap imagem = BitmapFactory.decodeByteArray(foto, 0, foto.length);
-            holder.imagemProduto.setImageBitmap(imagem);
-        }
+        int foto = produto.getImagem();
+       // if(foto!=null) {
+            //Bitmap imagem = BitmapFactory.decodeByteArray(foto, 0, foto.length);
+            holder.imagemProduto.setImageResource(foto);
+        //}
         holder.nomeProduto.setText(produto.getNomeProduto());
         holder.precoProduto.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(valor)));
-        holder.supermercado.setText(produto.getSupermercado());
+        //holder.supermercado.setText(produto.getSupermercado());
 
         if(produtoOnClickListener != null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                    //produtoOnClickListener.onClickProduto(holder.itemView,position);
-                    Produto produto = produtos.get(position);
+                    //Produto produto = produtos.get(position);
                     Bundle params = new Bundle();
-                    params.putSerializable("produto", (Serializable) produto);
-
-                    new BaseActivity().iniciarIntent(ProdutoActivity.class, params);
+                    params.putInt("position",position);
+                   // params.putSerializable("produto", params);
+                    Intent intent = new Intent(context, ProdutoActivity.class);
+                    context.startActivity(intent);
+                    //new BaseActivity().iniciarIntent(ProdutoActivity.class, params);
                 }
             });
         }

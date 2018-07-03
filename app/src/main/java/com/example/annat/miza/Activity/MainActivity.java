@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.example.annat.miza.DB.DBFirebase;
+import com.example.annat.miza.Domain.ProdutoService;
 import com.example.annat.miza.Domain.Supermercado;
 import com.example.annat.miza.Fragments.FragmentHome;
 import com.example.annat.miza.R;
@@ -19,7 +20,7 @@ public class MainActivity extends BaseActivity {
 
     private FirebaseDatabase fbDatabase;
     private DatabaseReference dbReference;
-
+    private static boolean validator = false;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,8 +28,16 @@ public class MainActivity extends BaseActivity {
         setUpToolbar("MIZA");
         setUpNavigationDrawer();
         inicializarFragment(new FragmentHome());
-        cadastra();
+        //cadastra();
+        if(!validator) {
+            ProdutoService.criarProduto();
+            validator = true;
+        }
 
+    }
+    protected  void onDestroy(){
+        super.onDestroy();
+        validator=false;
     }
 
     private static void cadastra(){

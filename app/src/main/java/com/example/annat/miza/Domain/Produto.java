@@ -6,19 +6,18 @@ import java.math.BigDecimal;
 public class Produto{
     private String nomeProduto;
     private BigDecimal precoProduto;
-    private int lote;
+   // private int lote;
     private String supermercado;
     private String departamento;
-    private byte[] imagem;
+    private int imagem;
 
-    public Produto(String nomeProduto, BigDecimal precoProduto, int lote,
-                   String supermercado, String departamento, byte[] imagem){
+    public Produto(String nomeProduto, BigDecimal precoProduto,
+                    String departamento, String supermercado, int imagem){
         this.nomeProduto = nomeProduto;
         this.precoProduto = precoProduto;
-        this.lote = lote;
-        this.supermercado = supermercado;
-        this.departamento = departamento;
         this.imagem = imagem;
+        this.departamento = departamento;
+        this.supermercado = supermercado;
     }
 
 
@@ -38,14 +37,14 @@ public class Produto{
         this.precoProduto = precoProduto;
     }
 
-    public int getLote() {
+   /* public int getLote() {
         return lote;
     }
 
     public void setLote(int lote) {
         this.lote = lote;
     }
-
+    */
     public String getSupermercado() {
         return supermercado;
     }
@@ -62,11 +61,12 @@ public class Produto{
         this.departamento = departamento;
     }
 
-    public byte[] getImagem() {
+    public int getImagem() {
         return imagem;
     }
 
-    public void setImagem(byte[] imagem) {
+    public void setImagem(int imagem) {
         this.imagem = imagem;
     }
+
 }

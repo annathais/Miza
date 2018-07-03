@@ -6,6 +6,7 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,17 +14,25 @@ import android.widget.Toast;
 
 import com.example.annat.miza.Adapter.AdapterProduto;
 import com.example.annat.miza.Adapter.AdapterSupermercado;
+import com.example.annat.miza.DB.DBFirebase;
 import com.example.annat.miza.Domain.Produto;
 import com.example.annat.miza.Domain.ProdutoService;
+import com.example.annat.miza.Domain.Supermercado;
 import com.example.annat.miza.Domain.SupermercadoService;
 import com.example.annat.miza.R;
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
     private RecyclerView recyclerView;
-    private List<Produto> produtos;
-
+    private List<Produto> produtos ;
+    private DatabaseReference reference = new DBFirebase().getReference().child("Supermercado");
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container,
                              Bundle savedInstanceState){
@@ -55,7 +64,9 @@ public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
 
     private void taskSupermercados() {
         this.produtos = ProdutoService.getProdutos();
-        recyclerView.setAdapter(new AdapterProduto(produtos, getContext(), onClickProduto()));
+        Log.i("Produto class","Supermercado ="+produtos);
+
+            recyclerView.setAdapter(new AdapterProduto(produtos, getContext(),onClickProduto()));
     }
 
     public static FragmentHomeDestaque newInstance(){

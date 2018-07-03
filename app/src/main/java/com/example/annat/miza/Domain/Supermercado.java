@@ -1,5 +1,7 @@
 package com.example.annat.miza.Domain;
 
+import java.util.List;
+
 public class Supermercado {
     private String nome;
     private String rua;
@@ -11,7 +13,7 @@ public class Supermercado {
     private int cep;
     private String cidade;
     private String estado;
-
+    private List<Produto> produto;
     public Supermercado(){
 
     }
@@ -108,6 +110,15 @@ public class Supermercado {
 
     public void setEstado(String estado) {
         this.estado = estado;
+    }
+
+
+    public List<Produto> getProduto() {
+        return produto;
+    }
+
+    public void setProduto(List<Produto> produtos) {
+        this.produto = produtos;
     }
 
     @Override

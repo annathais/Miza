@@ -7,9 +7,8 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 public class AdapterHomeDepartamento extends BaseAdapter {
-    private  String[] departamentos = new String[]{"Açogue", "Bebidas", "Bomboniere",
-            "Cereais", "Enlatados", "Festas", "Frios", "Higiene", "Hortifruti",
-            "Laticíneos", "Limpeza", "Papelaria e Armarinho", "Petshop"
+    private  String[] departamentos = new String[]{"Açogue", "Bebidas", "Cereais", "Enlatados",
+            "Frios", "Higiene", "Hortifruti", "Laticíneos", "Limpeza", "Petshop"
     };
     private Context context;
 

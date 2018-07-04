@@ -71,11 +71,11 @@ public class BaseActivity extends AppCompatActivity {
 
     static private void setNavViewValues(NavigationView navigationView, int usuario, int email, int ic_launcher_round) {
         View headerView = navigationView.getHeaderView(0);
-        TextView nomeUsuario = (TextView) headerView.findViewById(R.id.nome_usuario);
+        //TextView nomeUsuario = (TextView) headerView.findViewById(R.id.nome_u);
         TextView emailUsuario = (TextView) headerView.findViewById(R.id.email_usuario);
         ImageView imagem =  (ImageView) headerView.findViewById(R.id.imagem_usuarioPhoto);
 
-        nomeUsuario.setText(usuario);
+       // nomeUsuario.setText(usuario);
         emailUsuario.setText(email);
         imagem.setImageResource(ic_launcher_round);
     }

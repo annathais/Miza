@@ -1,5 +1,6 @@
 package com.example.annat.miza.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -12,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.annat.miza.Activity.ProdutoActivity;
 import com.example.annat.miza.Adapter.AdapterProduto;
 import com.example.annat.miza.Adapter.AdapterSupermercado;
 import com.example.annat.miza.DB.DBFirebase;
@@ -52,7 +54,12 @@ public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
             @Override
             public void onClickProduto(View view, int id) {
                 Produto produto = produtos.get(id);
-                Toast.makeText(view.getContext(),produto.getNome(),Toast.LENGTH_SHORT).show();
+                Bundle params = new Bundle();
+                params.putInt("position",id);
+                // params.putSerializable("produto", params);
+                Intent intent = new Intent(getContext(), ProdutoActivity.class);
+                getContext().startActivity(intent);
+                //new BaseActivity().iniciarIntent(ProdutoActivity.class, params);
             }
         };
     }
@@ -65,7 +72,7 @@ public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
     }
 
     private void taskSupermercados() {
-        this.produtos= new ArrayList<Produto>(20);// = ProdutoService.getProdutos();
+        this.produtos= new ArrayList<Produto>();// = ProdutoService.getProdutos();
         reference.orderByChild("preco").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

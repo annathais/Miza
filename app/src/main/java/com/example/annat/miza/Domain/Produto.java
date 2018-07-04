@@ -9,8 +9,8 @@ public class Produto{
    // private int lote;
     private String supermercado;
     private String departamento;
-    private String imagemLink;
-    private byte[] imagem;
+    private String imagem;
+    private byte[] imagemByte;
 
     public Produto(String nomeProduto, float precoProduto,
                     String departamento, String supermercado, int imagem){
@@ -63,13 +63,14 @@ public class Produto{
         this.departamento = departamento;
     }
 
-    public String getImagemLink() {
-       return imagemLink;
+    public String getImagem() {
+       return imagem;
     }
 
-    public void setImagemLink(String imagem) {
-        this.imagemLink = imagem;
+    public void setImagem(String imagem) {
+        this.imagem = imagem;
     }
+    /*
     public byte[] getImagem() {
         return imagem;
     }
@@ -77,6 +78,7 @@ public class Produto{
     public void setImagem(byte[] imagem) {
         this.imagem = imagem;
     }
+    */
     public String toString(){
         return "Nome: "+nome+"\n" +
                 "Preco:"+preco;

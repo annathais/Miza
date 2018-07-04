@@ -6,17 +6,22 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.annat.miza.Activity.BaseActivity;
 import com.example.annat.miza.Activity.ProdutoActivity;
+import com.example.annat.miza.DB.DBFirebase;
 import com.example.annat.miza.R;
 
 import com.example.annat.miza.Domain.Produto;
+import com.firebase.ui.storage.images.FirebaseImageLoader;
+import com.google.firebase.storage.StorageReference;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
@@ -27,6 +32,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
     private final List<Produto> produtos;
     private ProdutoOnClickListener produtoOnClickListener;
     private final Context context;
+    private DBFirebase dbFirebase = new DBFirebase();
 
     public AdapterProduto(List<Produto> produtos, Context context,
                           ProdutoOnClickListener produtoOnClickListener) {
@@ -47,6 +53,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
     public void onBindViewHolder(final ProdutoViewHolder holder, final int position) {
         Produto produto = produtos.get(position);
         double valor = produto.getPreco();
+        carregaImagem(produto,holder.imagemProduto);
         //int foto = produto.getImagem();
        // if(foto!=null) {
             //Bitmap imagem = BitmapFactory.decodeByteArray(foto, 0, foto.length);
@@ -62,15 +69,20 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
                 public void onClick(View view) {
                    //produtoOnClickListener.onClickProduto(holder.itemView,position);
                     //Produto produto = produtos.get(position);
-                    Bundle params = new Bundle();
-                    params.putInt("position",position);
-                   // params.putSerializable("produto", params);
-                    Intent intent = new Intent(context, ProdutoActivity.class);
-                    context.startActivity(intent);
-                    //new BaseActivity().iniciarIntent(ProdutoActivity.class, params);
+                    produtoOnClickListener.onClickProduto(holder.itemView,position);
                 }
             });
         }
+
+    }
+
+    private void carregaImagem(Produto produto, ImageView img) {
+        Log.i("img",produto.getImagem());
+        // Load the image using Glide
+        Glide.with(context)
+                .using(new FirebaseImageLoader())
+                .load(dbFirebase.getPathReference().child(produto.getImagem()))
+                .into(img);
     }
 
     @Override

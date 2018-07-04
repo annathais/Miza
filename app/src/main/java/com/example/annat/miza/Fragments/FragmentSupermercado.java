@@ -47,32 +47,25 @@ public class FragmentSupermercado extends Fragment {
     }
     private void taskSupermercados() {
         supermercados = new ArrayList<Supermercado>();
-        reference.orderByChild("nome").addChildEventListener(new ChildEventListener() {
-            @Override
-            public void onChildAdded(DataSnapshot dataSnapshot, String s) {
-                Supermercado supermercado = dataSnapshot.getValue(Supermercado.class);
-                supermercados.add(supermercado);
-                Log.i("Supermercado class","Supermercado ="+supermercado);
-            }
-            @Override
-            public void onChildChanged(DataSnapshot dataSnapshot, String s) {
 
-            }
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onChildRemoved(DataSnapshot dataSnapshot) {
-
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data: dataSnapshot.getChildren()) {
+                    //Supermercado supermercado =(Supermercado) data.getValue(Supermercado.class);
+                    supermercados.add((Supermercado) data.getValue(Supermercado.class));
+                    Log.i("Supermercado class","Supermercados ="+supermercados);
+                }
+                recyclerView.setAdapter(new AdapterSupermercado(supermercados, getContext()));
             }
-            @Override
-            public void onChildMoved(DataSnapshot dataSnapshot, String s) {
 
-            }
             @Override
             public void onCancelled(DatabaseError databaseError) {
 
             }
         });
-
-        recyclerView.setAdapter(new AdapterSupermercado(supermercados, getContext()));
+        //Log.i("Supermercado class","Supermercados ="+supermercados);
+        //recyclerView.setAdapter(new AdapterSupermercado(supermercados, getContext()));
     }
 
     public static FragmentSupermercado newInstance(){

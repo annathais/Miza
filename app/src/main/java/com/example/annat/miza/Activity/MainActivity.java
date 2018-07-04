@@ -28,35 +28,7 @@ public class MainActivity extends BaseActivity {
         setUpToolbar("MIZA");
         setUpNavigationDrawer();
         inicializarFragment(new FragmentHome());
-        //cadastra();
-        if(!validator) {
-            ProdutoService.criarProduto();
-            validator = true;
-        }
-
-    }
-    protected  void onDestroy(){
-        super.onDestroy();
-        validator=false;
     }
 
-    private static void cadastra(){
-        DatabaseReference reference = new DBFirebase().getReference().child("Supermercado");
-        Map<String,Supermercado> supermercadoMap = new HashMap<>();
-        supermercadoMap.put("Dona Novinha", new Supermercado("Dona Novinha",
-                "Isac Peres",666,"Centro","91666666","donanovinha@velha.com", 212586,
-                69103100, "Itacoatiara", "Amazonas"));
-        reference.setValue(supermercadoMap, new DatabaseReference.CompletionListener() {
-            @Override
-            public void onComplete(DatabaseError databaseError, DatabaseReference databaseReference) {
-                if(databaseError == null) {
-                    Log.i("AMEM","tudo ok");
-                }
-                else{
-                    Log.e("ERRO",databaseError.getMessage());
-                }
-            }
-        });
 
-    }
 }

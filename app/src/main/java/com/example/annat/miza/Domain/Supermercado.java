@@ -13,13 +13,14 @@ public class Supermercado {
     private int cep;
     private String cidade;
     private String estado;
-    private List<Produto> produto;
+    //private List<Produto> produto;
     public Supermercado(){
 
     }
 
-    public Supermercado(String nome, String rua, int numero, String bairro, String telefone,
-                        String email, int cnpj, int cep, String cidade, String estado){
+    public Supermercado( String bairro,int cep, String cidade, int cnpj,
+                         String email,String estado, String nome, int numero,  String rua,String telefone
+                          ){
         this.nome = nome;
         this.rua = rua;
         this.numero = numero;
@@ -113,13 +114,7 @@ public class Supermercado {
     }
 
 
-    public List<Produto> getProduto() {
-        return produto;
-    }
 
-    public void setProduto(List<Produto> produtos) {
-        this.produto = produtos;
-    }
 
     @Override
     public String toString() {

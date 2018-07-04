@@ -48,10 +48,10 @@ public class AdapterSupermercado extends RecyclerView.Adapter<AdapterSupermercad
 
                 if(holder.layoutInfoSupermercado.getVisibility() == View.VISIBLE){
                     holder.layoutInfoSupermercado.setVisibility(View.GONE);
-                    holder.btShowSupermercado.setImageResource(R.mipmap.ic_keyboard_arrow_up_black_24dp);
+                    holder.btShowSupermercado.setImageResource(R.mipmap.ic_keyboard_arrow_down_black_24dp);
                 }else{
                     holder.layoutInfoSupermercado.setVisibility(View.VISIBLE);
-                    holder.btShowSupermercado.setImageResource(R.mipmap.ic_keyboard_arrow_down_black_24dp);
+                    holder.btShowSupermercado.setImageResource(R.mipmap.ic_keyboard_arrow_up_black_24dp);
                 }
             }
         });

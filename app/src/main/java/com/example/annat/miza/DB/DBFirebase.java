@@ -4,11 +4,16 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.storage.FirebaseStorage;
 
 public class DBFirebase {
     private final FirebaseAuth firebaseAuth = FirebaseAuth.getInstance();
     private FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
     private FirebaseDatabase firebaseDatabase = FirebaseDatabase.getInstance();
+
+
+
+    private FirebaseStorage storage = FirebaseStorage.getInstance();
     private DatabaseReference reference = firebaseDatabase.getReference("server/database");
 
     public FirebaseAuth getFirebaseAuth() {
@@ -19,6 +24,9 @@ public class DBFirebase {
         return reference;
     }
 
+    public FirebaseStorage getStorage() {
+        return storage;
+    }
     public FirebaseUser getFirebaseUser() {
         if(firebaseAuth.getCurrentUser()!=null){
             return firebaseAuth.getCurrentUser();

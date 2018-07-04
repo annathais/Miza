@@ -20,8 +20,8 @@ public class SupermercadoService {
                                          String telefone,String email, int cnpj, int cep,
                                   String cidade, String estado){
         try{
-            supermercadoList.add(new Supermercado(nome, rua, numero, bairro, telefone,
-                    email, cnpj, cep, cidade, estado));
+           // supermercadoList.add(new Supermercado(nome, rua, numero, bairro, telefone,
+            //        email, cnpj, cep, cidade, estado));
         }catch (Error error){
 
         }

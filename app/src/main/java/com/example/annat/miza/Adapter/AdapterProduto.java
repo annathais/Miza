@@ -46,15 +46,15 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
     @Override
     public void onBindViewHolder(final ProdutoViewHolder holder, final int position) {
         Produto produto = produtos.get(position);
-        double valor = produto.getPrecoProduto().setScale(2, BigDecimal.ROUND_HALF_EVEN).doubleValue();
-        int foto = produto.getImagem();
+        double valor = produto.getPreco();
+        //int foto = produto.getImagem();
        // if(foto!=null) {
             //Bitmap imagem = BitmapFactory.decodeByteArray(foto, 0, foto.length);
-            holder.imagemProduto.setImageResource(foto);
+           // holder.imagemProduto.setImageResource(foto);
         //}
-        holder.nomeProduto.setText(produto.getNomeProduto());
+        holder.nomeProduto.setText(produto.getNome());
         holder.precoProduto.setText(String.valueOf(NumberFormat.getCurrencyInstance().format(valor)));
-        //holder.supermercado.setText(produto.getSupermercado());
+        holder.supermercado.setText(produto.getSupermercado());
 
         if(produtoOnClickListener != null){
             holder.itemView.setOnClickListener(new View.OnClickListener() {

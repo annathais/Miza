@@ -24,6 +24,7 @@ import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,7 @@ import java.util.Map;
 public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
     private RecyclerView recyclerView;
     private List<Produto> produtos ;
-    private DatabaseReference reference = new DBFirebase().getReference().child("Supermercado");
+    private DatabaseReference reference = new DBFirebase().getReference().child("produto");
     @Override
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup container,
                              Bundle savedInstanceState){
@@ -51,7 +52,7 @@ public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
             @Override
             public void onClickProduto(View view, int id) {
                 Produto produto = produtos.get(id);
-                Toast.makeText(view.getContext(),produto.getNomeProduto(),Toast.LENGTH_SHORT).show();
+                Toast.makeText(view.getContext(),produto.getNome(),Toast.LENGTH_SHORT).show();
             }
         };
     }
@@ -59,14 +60,28 @@ public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        Log.i("INICIA","COMEÇO");
         taskSupermercados();
     }
 
     private void taskSupermercados() {
-        this.produtos = ProdutoService.getProdutos();
-        Log.i("Produto class","Supermercado ="+produtos);
+        this.produtos= new ArrayList<Produto>(20);// = ProdutoService.getProdutos();
+        reference.orderByChild("preco").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                for (DataSnapshot data: dataSnapshot.getChildren()) {
+                    produtos.add((Produto) data.getValue(Produto.class));
 
-            recyclerView.setAdapter(new AdapterProduto(produtos, getContext(),onClickProduto()));
+                }
+                ProdutoService.setProdutos(produtos);
+                recyclerView.setAdapter(new AdapterProduto(produtos, getContext(),onClickProduto()));
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
     public static FragmentHomeDestaque newInstance(){

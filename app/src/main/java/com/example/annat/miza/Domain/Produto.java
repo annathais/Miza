@@ -4,37 +4,39 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class Produto{
-    private String nomeProduto;
-    private BigDecimal precoProduto;
+    private String nome;
+    private float preco;
    // private int lote;
     private String supermercado;
     private String departamento;
-    private int imagem;
+    private String imagemLink;
+    private byte[] imagem;
 
-    public Produto(String nomeProduto, BigDecimal precoProduto,
+    public Produto(String nomeProduto, float precoProduto,
                     String departamento, String supermercado, int imagem){
-        this.nomeProduto = nomeProduto;
-        this.precoProduto = precoProduto;
-        this.imagem = imagem;
+        this.nome = nomeProduto;
+        this.preco = precoProduto;
+       // this.imagem = imagem;
         this.departamento = departamento;
         this.supermercado = supermercado;
     }
+    public Produto(){}
 
 
-    public String getNomeProduto() {
-        return nomeProduto;
+    public String getNome() {
+        return nome;
     }
 
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
+    public void setNome(String nomeProduto) {
+        this.nome = nomeProduto;
     }
 
-    public BigDecimal getPrecoProduto() {
-        return precoProduto;
+    public float getPreco() {
+        return preco;
     }
 
-    public void setPrecoProduto(BigDecimal precoProduto) {
-        this.precoProduto = precoProduto;
+    public void setPreco(float precoProduto) {
+        this.preco = precoProduto;
     }
 
    /* public int getLote() {
@@ -61,12 +63,23 @@ public class Produto{
         this.departamento = departamento;
     }
 
-    public int getImagem() {
+    public String getImagemLink() {
+       return imagemLink;
+    }
+
+    public void setImagemLink(String imagem) {
+        this.imagemLink = imagem;
+    }
+    public byte[] getImagem() {
         return imagem;
     }
 
-    public void setImagem(int imagem) {
+    public void setImagem(byte[] imagem) {
         this.imagem = imagem;
+    }
+    public String toString(){
+        return "Nome: "+nome+"\n" +
+                "Preco:"+preco;
     }
 
 }

@@ -22,15 +22,15 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="19dp"
             android:src="@mipmap/ic_launcher" />
+
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/mostrar_nome_doproduto"
-            android:text="Nome Produto"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
             android:layout_below="@+id/mostrar_img_produto"
             android:layout_centerHorizontal="true"
-            android:textSize="20sp"
-            />
+            android:text="Nome Produto"
+            android:textSize="20sp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

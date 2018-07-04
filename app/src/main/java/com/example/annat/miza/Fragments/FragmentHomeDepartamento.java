@@ -1,5 +1,6 @@
 package com.example.annat.miza.Fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -9,6 +10,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.example.annat.miza.Activity.ProdutoActivity;
+import com.example.annat.miza.Activity.ProdutoDepartamentoActivity;
 import com.example.annat.miza.Adapter.AdapterHomeDepartamento;
 import com.example.annat.miza.R;
 
@@ -33,7 +36,10 @@ public class FragmentHomeDepartamento extends android.support.v4.app.Fragment {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String departamento = (String) adapterView.getAdapter().getItem(i);
-                Toast.makeText(view.getContext(),"Selecionou " + departamento, Toast.LENGTH_SHORT).show();
+                Bundle params = new Bundle();
+                params.putString("nome",departamento);
+                Intent intent = new Intent(getContext(), ProdutoDepartamentoActivity.class);
+                getContext().startActivity(intent);
             }
         };
 

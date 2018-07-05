@@ -53,7 +53,11 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
     public void onBindViewHolder(final ProdutoViewHolder holder, final int position) {
         Produto produto = produtos.get(position);
         double valor = produto.getPreco();
-        carregaImagem(produto,holder.imagemProduto);
+        //carregaImagem(produto,holder.imagemProduto);
+       // Glide.with(context)
+         //       .using(new FirebaseImageLoader())
+           //     .load(dbFirebase.getPathReference().child(produto.getImagem()))
+             //   .into(holder.imagemProduto);
         //int foto = produto.getImagem();
        // if(foto!=null) {
             //Bitmap imagem = BitmapFactory.decodeByteArray(foto, 0, foto.length);
@@ -77,7 +81,7 @@ public class AdapterProduto extends RecyclerView.Adapter<AdapterProduto.ProdutoV
     }
 
     private void carregaImagem(Produto produto, ImageView img) {
-        Log.i("img",produto.getImagem());
+        //Log.i("img",produto.getImagem());
         // Load the image using Glide
         Glide.with(context)
                 .using(new FirebaseImageLoader())

@@ -54,10 +54,9 @@ public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
             @Override
             public void onClickProduto(View view, int id) {
                 Produto produto = produtos.get(id);
-                Bundle params = new Bundle();
-                params.putInt("position",id);
-                // params.putSerializable("produto", params);
+               // Log.i("Produto", ""+produto +"posicao"+id);
                 Intent intent = new Intent(getContext(), ProdutoActivity.class);
+                intent.putExtra("position",id);
                 getContext().startActivity(intent);
                 //new BaseActivity().iniciarIntent(ProdutoActivity.class, params);
             }
@@ -67,7 +66,7 @@ public class FragmentHomeDestaque extends android.support.v4.app.Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        Log.i("INICIA","COMEÇO");
+
         taskSupermercados();
     }
 

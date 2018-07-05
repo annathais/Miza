@@ -13,7 +13,7 @@ public class Produto{
     private byte[] imagemByte;
 
     public Produto(String nomeProduto, float precoProduto,
-                    String departamento, String supermercado, int imagem){
+                    String departamento, String supermercado){
         this.nome = nomeProduto;
         this.preco = precoProduto;
        // this.imagem = imagem;

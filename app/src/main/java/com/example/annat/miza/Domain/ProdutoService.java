@@ -2,6 +2,7 @@ package com.example.annat.miza.Domain;
 
 import android.util.Log;
 
+import com.example.annat.miza.Adapter.AdapterProduto;
 import com.example.annat.miza.DB.DBFirebase;
 import com.example.annat.miza.R;
 import com.google.firebase.database.DataSnapshot;
@@ -39,15 +40,15 @@ public class ProdutoService {
         return produtos.get(pos);
     }
 
-    public static List<Produto> searchProduto(final String nome){
+    public static List<Produto> searchProduto(){
         final List<Produto> busca = new ArrayList<>();
-        reference.child("nome").equalTo(nome).addValueEventListener(new ValueEventListener() {
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data: dataSnapshot.getChildren()) {
                         busca.add((Produto) data.getValue(Produto.class));
-
                 }
+
             }
 
             @Override
@@ -59,16 +60,21 @@ public class ProdutoService {
 
     }
 
+
     public static List<Produto> searchProdutoByDepartamento(final String nomeDepartamento) {
         final List<Produto> buscaByDep = new ArrayList<>();
-        Query query =  reference.child("departamento").equalTo(nomeDepartamento);
-        query.addValueEventListener(new ValueEventListener() {
+        //Query query =  reference.child("departamento").equalTo(nomeDepartamento);
+        reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 for (DataSnapshot data: dataSnapshot.getChildren()) {
                         buscaByDep.add((Produto) data.getValue(Produto.class));
                 }
-                Log.i("Departamento",""+buscaByDep);
+                for(Produto pro:produtos){
+                    if(!pro.getDepartamento().equals(nomeDepartamento)){
+                        produtos.remove(pro);
+                    }
+                }
             }
 
             @Override
@@ -79,4 +85,9 @@ public class ProdutoService {
         return buscaByDep;
 
     }
+
+    public static int listSize(){
+        return produtos.size();
+    }
+
 }

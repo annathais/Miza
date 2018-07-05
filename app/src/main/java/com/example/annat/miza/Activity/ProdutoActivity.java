@@ -18,6 +18,7 @@ import com.example.annat.miza.Domain.Produto;
 import com.example.annat.miza.Domain.ProdutoService;
 import com.example.annat.miza.R;
 
+import java.util.Iterator;
 import java.util.List;
 
 public class ProdutoActivity extends BaseActivity{
@@ -43,10 +44,10 @@ public class ProdutoActivity extends BaseActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mostrarproduto);
         setUpToolbar("Produto");
-       // Intent intent = getIntent();
-        Bundle bundle = new Bundle();
-        int pos= bundle.getInt("position");
+        Bundle args = getIntent().getExtras();
+        int pos = args.getInt("position");
         this.produto = ProdutoService.getItemProduto(pos);
+        //Log.i("Produto", ""+produto +"posicao"+pos);
         imageview = (ImageView) findViewById(R.id.mostrar_img_produto);
         tvNomeProduto = (TextView) findViewById(R.id.mostrar_nome_doproduto);
         tvSupermercado = (TextView) findViewById(R.id.mostrar_menor_supermercado);
@@ -65,7 +66,22 @@ public class ProdutoActivity extends BaseActivity{
     }
 
     private void taskProdutos() {
-        produtos = ProdutoService.searchProduto(produto.getNome());
+        String nome=produto.getNome();
+       // for(int i=0;i<ProdutoService.listSize();i++){
+       //     if(ProdutoService.getItemProduto(i).getNome().equals(nome)){
+       //       produtos.add(ProdutoService.getItemProduto(i));
+       //     }
+       // }
+        /*while(iter.hasNext()){
+            String nomeProd = iter.next().getNome();
+            Log.i("Ctrl",""+nomeProd+"=="+produto.getNome());
+            //Produto pro = iter.next();
+
+            if(!(nomeProd.equals(nome))) {
+                iter.remove();
+            }
+        }*/
+
         rvProdutos.setAdapter(new AdapterMostrarProduto(produtos,getBaseContext()));
     }
 }
